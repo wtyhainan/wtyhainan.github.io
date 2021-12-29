@@ -1,13 +1,3 @@
----
-layout: "post"
-title: stochastic policy gradient
-subtitle: policy gradient
-date: 2021-12-29
-categories: "RL"
-tags: "policy gradient" "stochastic policy gradient" 
----
-
-
 # 随机策略梯度理论
 
 ### 1、策略梯度
