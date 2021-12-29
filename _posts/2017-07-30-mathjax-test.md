@@ -21,11 +21,9 @@ mathjax in markdown :)
 $\nabla_{\theta}J(\theta)=\nabla_{\theta}\pi(|s;\theta)$
 \
 下面这个公式为行间公式正常写法，不加任何换行
-\
-
 $$
 \nabla_{\theta}J(\theta) = \nabla_{\theta}\pi(a|s;\theta) \\
 =\nabla_{\theta} log(\pi(a|s;\theta)))
 $$
 
-这是第2次测试
+这是第3次测试
