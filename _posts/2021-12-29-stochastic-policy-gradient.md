@@ -2,7 +2,7 @@
 
 ### 1、策略梯度
 
-**强化学习的目标**是找到一个最优策略，当agent遵循该策略与环境进行交互时收获尽可能多的回报。假设策略由参数 $\theta$ 表示，记为：$\pi(a|s;\theta)$，那么目标函数 $J$ 可以表示为:
+**强化学习的目标**是找到一个最优策略，当agent遵循该策略与环境进行交互时收获尽可能多的回报。假设策略由参数 $\theta$ 表示，记为：$\pi(a \| s;\theta)$，那么目标函数 $J$ 可以表示为:
 
 $$
 J(\theta)=\sum_{s \in S}d^{\pi}(s)V^{\pi}(s)=\sum_{s \in S}d^{\pi}(s)\sum_{a \in A}\pi(a \|s;\theta)Q^{\pi}(s,a) \tag{1}
@@ -41,37 +41,37 @@ $$
 
 $$
 \begin{aligned}
-\footnotesize \nabla_{\theta} V(s) &= \footnotesize \nabla_{\theta} \sum_{a \in A} \pi (a|s;\theta)Q^{\pi}(s,a)
+\nabla_{\theta} V(s) &= \footnotesize \nabla_{\theta} \sum_{a \in A} \pi (a|s;\theta)Q^{\pi}(s,a)
 \\
-\\ &= \footnotesize \sum_{a \in A}(\nabla_{\theta} \pi(a|s;\theta)Q^{\pi}(s,a) + \pi(a|s;\theta) \nabla_{\theta} Q^{\pi}(s,a))
+\\ &= \sum_{a \in A}(\nabla_{\theta} \pi(a|s;\theta)Q^{\pi}(s,a) + \pi(a|s;\theta) \nabla_{\theta} Q^{\pi}(s,a))
 \\
-\\ &= \footnotesize \sum_{a \in A} \nabla_{\theta} \pi(a|s; \theta)Q^{\pi}(s, a) + \sum_{a \in A} \pi(a|s;\theta) \nabla_{\theta} Q^{\pi}(s,a)
+\\ &= \sum_{a \in A} \nabla_{\theta} \pi(a|s; \theta)Q^{\pi}(s, a) + \sum_{a \in A} \pi(a|s;\theta) \nabla_{\theta} Q^{\pi}(s,a)
 \\
-\\ &= \footnotesize \Phi(s) + \sum_{a \in A} \pi(a|s;\theta) \nabla_{\theta} (\sum_{s^{'} \in S}P(s^{'},r|s,a)(r+V(s^{'})))
+\\ &= \Phi(s) + \sum_{a \in A} \pi(a|s;\theta) \nabla_{\theta} (\sum_{s^{'} \in S}P(s^{'},r|s,a)(r+V(s^{'})))
 \\
-\\ &= \footnotesize \Phi(s) + \sum_{a \in A} \pi(a|s;\theta) \nabla_{\theta} \sum_{s^{'} \in S}P(s^{'}|s,a)V(s^{'})
+\\ &= \Phi(s) + \sum_{a \in A} \pi(a|s;\theta) \nabla_{\theta} \sum_{s^{'} \in S}P(s^{'}|s,a)V(s^{'})
 \\
-\\ &= \footnotesize \Phi(s) + \sum_{a \in A} \pi(a|s;\theta) \sum_{s^{'} \in S}P(s^{'}|s,a) \nabla_{\theta} V(s^{'})  
+\\ &= \Phi(s) + \sum_{a \in A} \pi(a|s;\theta) \sum_{s^{'} \in S}P(s^{'}|s,a) \nabla_{\theta} V(s^{'})  
 \\
-\\ &= \footnotesize \Phi(s) + \underline{ \sum_{s^{'} \in S} \rho (s \rightarrow s^{'}, k=1) \nabla_{\theta} V(s^{'})}
+\\ &= \Phi(s) + \underline{ \sum_{s^{'} \in S} \rho (s \rightarrow s^{'}, k=1) \nabla_{\theta} V(s^{'})}
 \\
-\\ &= \footnotesize \Phi(s) + \sum\limits_{s^{'} \in S}    
+\\ &= \Phi(s) + \sum\limits_{s^{'} \in S}    
 \rho(s \rightarrow s^{'},k=1)   
 \underline{(     \Phi(s^{'}) +   \sum_{s^{''} \in S} \rho (s^{'} \rightarrow s^{''}, k=1) \nabla_{\theta} V(s^{''}))}
 \\
-\\ &= \footnotesize \Phi(s) + \sum_{s^{'} \in S} \rho(s \rightarrow s^{'},k=1) \Phi(s^{'} )
+\\ &= \Phi(s) + \sum_{s^{'} \in S} \rho(s \rightarrow s^{'},k=1) \Phi(s^{'} )
 + \sum\limits_{s^{'} \in S} \rho(s \rightarrow s^{'}, k=1) 
 \sum\limits_{s^{''} \in S} \rho(s^{'} \rightarrow s^{''}, k=1) \nabla_{\theta} V(s^{''})
 \\
-\\ &= \footnotesize \Phi(s) + \sum\limits_{s^{'} \in S} \rho(s \rightarrow s^{'}, k=1) \Phi(s^{'})
+\\ &= \Phi(s) + \sum\limits_{s^{'} \in S} \rho(s \rightarrow s^{'}, k=1) \Phi(s^{'})
 + \sum\limits_{s^{''} \in S} \rho(s \rightarrow s^{''}, k=2) \Phi(s^{''}) +....
 \\
-\\ &= \footnotesize \sum\limits_{x \in S} \sum\limits_{k=1}^{\infty} \rho(s \rightarrow x, k) \Phi(x)
+\\ &= \sum\limits_{x \in S} \sum\limits_{k=1}^{\infty} \rho(s \rightarrow x, k) \Phi(x)
 \end{aligned}
 \tag{3}
 $$
 
-其中 $\Phi(s)= \sum\limits_{a \in A} \nabla_{\theta} \pi(a \| s; \theta)Q^{\pi}(s,a)$  ，$P(s^{'},r|s,a)$ 表示agent在状态 $s$ 下执行动作 $a$ 后状态从 $s$ 转移到状态 $s^{'}$ 并得到及时奖励 $r$ 的概率。现在我们有：
+其中 $\Phi(s)= \sum\limits_{a \in A} \nabla_{\theta} \pi(a \| s; \theta)Q^{\pi}(s,a)$  ，$P(s^{'},r \| s,a)$ 表示agent在状态 $s$ 下执行动作 $a$ 后状态从 $s$ 转移到状态 $s^{'}$ 并得到及时奖励 $ r $ 的概率。现在我们有：
 
 $$
 \nabla_{\theta} V(s) = \sum\limits_{x \in S} \sum\limits_{k=0}^{\infty} \rho(s \rightarrow x,k) \Phi(x) 
