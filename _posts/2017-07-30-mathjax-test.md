@@ -11,7 +11,7 @@ mathjax in markdown :)
 
 ### 1、策略梯度
 
-**强化学习的目标**是找到一个最优策略，当agent遵循该策略与环境进行交互时收获尽可能多的回报。假设策略由参数 $\theta$ 表示，记为：$\pi(a|s;\theta)$，那么目标函数 $J$ 可以表示为:
+**强化学习的目标**是找到一个最优策略，当agent遵循该策略与环境进行交互时收获尽可能多的回报。假设策略由参数 $\theta$ 表示，记为：$\pi(a\|s;\theta)$，那么目标函数 $J$ 可以表示为:
 
 $$
 J(\theta)=\sum_{s \in S}d^{\pi}(s)V^{\pi}(s)=\sum_{s \in S}d^{\pi}(s)\sum_{a \in A}\pi(a|s;\theta)Q^{\pi}(s,a) \tag{1}
