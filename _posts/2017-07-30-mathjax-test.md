@@ -26,4 +26,4 @@ $$
 =\nabla_{\theta} log(\pi(a|s;\theta)))
 $$
 
-这是第6次测试
+这是第7次测试
