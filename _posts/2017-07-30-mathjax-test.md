@@ -37,4 +37,4 @@ $$
 \nabla_{\theta}J(\theta) = \nabla_{\theta}\pi(a|s;\theta) \\
 =\nabla_{\theta} log(\pi(a|s;\theta)))
 $$
-这是第12次测试
+这是第13次测试
