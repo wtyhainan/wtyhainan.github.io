@@ -1,7 +1,7 @@
 ---
 layout: "post"
-title: "stochastic policy gradient"
-subtitle: "policy gradient"
+title: stochastic policy gradient
+subtitle: policy gradient
 date: 2021-12-29
 categories: "RL"
 tags: "policy gradient" "stochastic policy gradient" 
