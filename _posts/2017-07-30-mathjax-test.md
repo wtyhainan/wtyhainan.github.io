@@ -25,5 +25,16 @@ $$
 \nabla_{\theta}J(\theta) = \nabla_{\theta}\pi(a|s;\theta) \\
 =\nabla_{\theta} log(\pi(a|s;\theta)))
 $$
-
-这是第11次测试
+加了《br》换行
+<br>
+$$
+\nabla_{\theta}J(\theta) = \nabla_{\theta}\pi(a|s;\theta) \\
+=\nabla_{\theta} log(\pi(a|s;\theta)))
+$$
+加了“\”换行
+\
+$$
+\nabla_{\theta}J(\theta) = \nabla_{\theta}\pi(a|s;\theta) \\
+=\nabla_{\theta} log(\pi(a|s;\theta)))
+$$
+这是第12次测试
