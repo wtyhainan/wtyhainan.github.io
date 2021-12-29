@@ -1,3 +1,12 @@
+---
+layout: post
+title: stochastic policy gradient
+date: 2021-12-29
+categories: RL
+tags: mathjax 
+---
+
+
 # 随机策略梯度理论
 
 ### 1、策略梯度
