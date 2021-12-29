@@ -7,23 +7,25 @@ tags: mathjax
 ---
 
 mathjax in markdown :)
-
-**这是一个不`align`的公式**：
+\
+测试网页版markdown和mathjax的性能，进行如下测试。
+\
+上面这段话，这当前这段话之间用“\”来换行。
+<br>
+上面这段话与当前这段话用"《br》"来换行
+\
+现在测试数学公式：
+\
+下面这个公式为行内公式正常写法：
+\
+$\nabla_{\theta}J(\theta)=\nabla_{\theta}\pi(|s;\theta)$
+\
+下面这个公式为行间公式正常写法，不加任何换行
+\
 
 $$
-\forall \alpha \in A, \quad a \cdot b = 0
+\nabla_{\theta}J(\theta) = \nabla_{\theta}\pi(a|s;\theta) \\
+=\nabla_{\theta} log(\pi(a|s;\theta)))
 $$
 
-**这是一个`align`的公式**：
-
-$$
-\text{for OTP : $\qquad$ if }\quad E(k,\:m)=c\\
-\begin{align}
-k\oplus m &= c \\
-k &= m\oplus c
-\end{align}
-\\
-\#\{\;k \in \mathscr K : \quad E(k,\:m)=c \;\}=1 \quad \forall m,\:c
-$$
-
-**注意：**公式块要想有较好的显示效果，必须在公式块标记符`$$`**前后**留有空行，否则公式将不能正常居中。行内公式无此问题。
+这里
