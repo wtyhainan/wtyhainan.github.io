@@ -5,7 +5,7 @@
 **强化学习的目标**是找到一个最优策略，当agent遵循该策略与环境进行交互时收获尽可能多的回报。假设策略由参数 $\theta$ 表示，记为：$\pi(a \| s;\theta)$，那么目标函数 $J$ 可以表示为:
 
 $$
-J(\theta)=\sum_{s \in S}d^{\pi}(s)V^{\pi}(s)=\sum_{s \in S}d^{\pi}(s)\sum_{a \in A}\pi(a \|s;\theta)Q^{\pi}(s,a) \tag{1}
+J(\theta)=\sum_{s \in S}d^{\pi}(s)V^{\pi}(s)=\sum_{s \in S}d^{\pi}(s)\sum_{a \in A}\pi(a |s;\theta)Q^{\pi}(s,a) \tag{1}
 $$
 
 为使用梯度算法找到最优$\theta$，需要计算 $J$ 对 $\theta$ 的梯度。在详细推到 $J$ 关于 $\theta$ 的梯度之前，这里给出 $J$ 关于参数 $\theta$ 梯度的理论表示式：
@@ -41,7 +41,7 @@ $$
 
 $$
 \begin{aligned}
-\nabla_{\theta} V(s) &= \footnotesize \nabla_{\theta} \sum_{a \in A} \pi (a|s;\theta)Q^{\pi}(s,a)
+\nabla_{\theta} V(s) &= \nabla_{\theta} \sum_{a \in A} \pi (a|s;\theta)Q^{\pi}(s,a)
 \\
 \\ &= \sum_{a \in A}(\nabla_{\theta} \pi(a|s;\theta)Q^{\pi}(s,a) + \pi(a|s;\theta) \nabla_{\theta} Q^{\pi}(s,a))
 \\
@@ -114,7 +114,7 @@ $$
 
 2）从 $\nabla_{\theta} J = E_{\pi}( \nabla_{\theta}log(\pi(a \| s;\theta))Q^{\pi}(s,a))$ 中看出，当agent在状态 $s$ 下根据策略 $ \pi(a \| s;\theta)$ 采取行动 $a$ 与环境交互时，$Q^{\pi}(s,a)$ 给出了动作 $a$ 的优良性评价，策略梯度根据该评价适当的增加（或减少）agent在状态 $s$ 下选择动作 $a$ 的概率；
 
-3）由式（5）式可知，对于不同episode， $Q^{\pi}(s,a)$ 对真实值估计的方差很大，这经常导致训练不稳定。假设agent在状态 $s$ 下可 $a_0, a_1, a_2$ 三个动作，每个动作对应的 $Q$ 值分别为 $Q(s,a_0)=10, Q(s,a_1)=8, Q(s,a_2)=-0.1$ ，此时由策略梯度理论，策略梯度算法会向 $\nabla_{\theta}log(\pi(a_0|s;\theta))$ 和 $\nabla_{\theta}log(\pi(a_1 \| s;\theta))$ 正方向及 $\nabla_{\theta}log(\pi(a_2 \| s;\theta))$ 相反方向移动。如下图：
+3）由式（5）式可知，对于不同episode， $Q^{\pi}(s,a)$ 对真实值估计的方差很大，这经常导致训练不稳定。假设agent在状态 $s$ 下可 $a_0, a_1, a_2$ 三个动作，每个动作对应的 $Q$ 值分别为 $Q(s,a_0)=10, Q(s,a_1)=8, Q(s,a_2)=-0.1$ ，此时由策略梯度理论，策略梯度算法会向 $\nabla_{\theta}log(\pi(a_0 \| s;\theta))$ 和 $\nabla_{\theta}log(\pi(a_1 \| s;\theta))$ 正方向及 $\nabla_{\theta}log(\pi(a_2 \| s;\theta))$ 相反方向移动。如下图：
 
 <img title="" src="file:///C:/Users/yangyuanbao/Desktop/my%20post/正确策略梯度示意图.jpg" alt="正确梯度示意图" data-align="center" width="471">
 
