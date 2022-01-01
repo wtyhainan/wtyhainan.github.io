@@ -33,9 +33,11 @@ G^{\gamma}(\pi) &= p(s_1)\pi(s_1, a_1)r_1 +
 &=
 p(s_1)\pi(s_1, a_1)r_1 + 
 \gamma p(s_1) p^{\pi}(s_1 \rightarrow s_2, 1) \pi(s_2, a_2)r_2 + 
-\gamma^{2} p(s_1) p^{\pi}(s_1 \rightarrow s_2, 1)\rho^{\pi}(s_2 \rightarrow s_3, 1)\pi(s_3, a_3)r_3 + ... 
-
-
+\gamma^{2} p(s_1) p^{\pi}(s_1 \rightarrow s_2, 1)\rho^{\pi}(s_2 \rightarrow s_3, 1)\pi(s_3, a_3)r_3 + ... \\
+&= p(s_1)\pi(s_1, a_1)r_1 + 
+\gamma p(s_1)p^{\pi}(s_1 \rightarrow s_2, 1) \pi(s_2, a_2)r_2 + 
+\gamma^{2} p(s_1) p^{\pi}(s_1 \rightarrow s_3, 2)\pi(s_3, a_3)r_3 + ...
+\tag{1}
 \end{aligned}
 $$
 
@@ -69,9 +71,9 @@ $$
 
 $$
 \begin{aligned}
-\nabla_{\theta} J(\mu_{\theta}) &= \nabla_{\theta} \int_{s \in S} \rho^{\mu}(s) \; r(s, \mu_{\theta}(s)) \; ds \\\\
-&= \int_{s \in S}\rho^{\mu}(s) \; \nabla_{\theta}r(s, \mu_{\theta}(s)) \\\\
-&= \int_{s \in S} \rho^{\mu}(s) \; \nabla_{a}r(s, a) \; \nabla_{\theta}\mu_{\theta}(s) |_{a=\mu_{\theta}(s)} \; ds \\\\
+\nabla_{\theta} J(\mu_{\theta}) &= \nabla_{\theta} \int_{s \in S} \rho^{\mu}(s) \; r(s, \mu_{\theta}(s)) \; ds \\
+&= \int_{s \in S}\rho^{\mu}(s) \; \nabla_{\theta}r(s, \mu_{\theta}(s)) \\
+&= \int_{s \in S} \rho^{\mu}(s) \; \nabla_{a}r(s, a) \; \nabla_{\theta}\mu_{\theta}(s) |_{a=\mu_{\theta}(s)} \; ds \\
 &= E_{s \thicksim \rho^{\mu}}[ \nabla_{a}r(s, a) \; \nabla_{\theta} \mu_{\theta}(s) |_{a=\mu_{\theta}}]
 \tag{3}
 \end{aligned}
