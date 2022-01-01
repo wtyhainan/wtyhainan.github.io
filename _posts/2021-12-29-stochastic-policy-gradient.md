@@ -125,7 +125,7 @@ $$
 
 3）由式（5）式可知，对于不同episode， $Q^{\pi}(s,a)$ 对真实值估计的方差很大，这经常导致训练不稳定。假设agent在状态 $s$ 下可 $a_0, a_1, a_2$ 三个动作，每个动作对应的 $Q$ 值分别为 $Q(s,a_0)=10, Q(s,a_1)=8, Q(s,a_2)=-0.1$ ，此时由策略梯度理论，策略梯度算法会向 $\nabla_{\theta}log(\pi(a_0 \| s;\theta))$ 和 $\nabla_{\theta}log(\pi(a_1 \| s;\theta))$ 正方向及 $\nabla_{\theta}log(\pi(a_2 \| s;\theta))$ 相反方向移动。如下图：
 
-<img title=梯度示意图"" src="/figures/_post/SPG_1.jpg" alt="梯度示意图" data-align="center" width="471">
+<img title="梯度示意图" src="/figures/_post/SPG_1.jpg" alt="梯度示意图" data-align="center" width="471">
 
 此时策略梯度算法能很好的区分不同动作的优劣性，算法能向折扣回报高的动作移动的同时，远离折扣回报低的动作。然而，在梯度方向相同，$Q$ 值变为：$Q^{\pi}(s,a_0)=10.2,Q^{\pi}(s,a_1)=8.2,Q^{\pi}(s,a_2)=0.1$ 时，由于3个动作的Q值均大于0，策略梯度算法会同时朝着这3个动作的策略梯度方向移动，这时梯度更新方向无法正确识别错误动作3。策略梯度算法需要更多的训练样本来消除这类动作造成的影响。
 
