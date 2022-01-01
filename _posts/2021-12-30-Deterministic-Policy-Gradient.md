@@ -75,10 +75,7 @@ $$
 
 在原始的DPG文章中，作者表明DPG只是SPG的一种特例，当SPG中概率密度的方差为0时，SPG与DPG等价。在实际应用中，通常用函数 $ \Phi(s,a) $ 来表示（3）式中的 $ r(s,a) $ 。
 
-
-
-![test]( DPG.jpg )
-
+![test]( \figures\post\DPG_1.jpg )
 
 ### 总结
 1、与SPG天生自带很强的exploration能力不同，DPG对环境的exploration能力相对较弱，对于相同state的输入，DPG输出永远是相同的。通常会在DPG输出部分添加噪声来提高agent的exploration能力。
