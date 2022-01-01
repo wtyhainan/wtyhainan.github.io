@@ -30,6 +30,10 @@ $$
 G^{\gamma}(\pi) &= p(s_1)\pi(s_1, a_1)r_1 + 
 \gamma p(s_1)p^{\pi}(s_1 \rightarrow s_2,1)\pi(s_2,a_2)r_2 + 
 \gamma^2 p(s_2)p^{\pi}(s_2 \rightarrow s_3, 1)\pi(s_3, a_3)r_3 + ... \\
+&=
+p(s_1)\pi(s_1, a_1)r_1 + 
+\gamma p(s_1) p^{\pi}(s_1 \rightarrow s_2, 1) \pi(s_2, a_2)r_2 + 
+\gamma^{2} p(s_1) p^{\pi}(s_1 \rightarrow s_2, 1)\rho^{\pi}(s_2 \rightarrow s_3, 1)\pi(s_3, a_3)r_3 + ... \\
 
 \end{aligned}
 $$
