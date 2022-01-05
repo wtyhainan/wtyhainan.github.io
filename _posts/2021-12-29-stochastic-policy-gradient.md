@@ -131,4 +131,4 @@ $$
 
 ###### 参考资料
 
-[Policy Gradient Algorithms]([Policy Gradient Algorithms](https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#actor-critic))
+[policy gradient algorithm](https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#actor-critic)
