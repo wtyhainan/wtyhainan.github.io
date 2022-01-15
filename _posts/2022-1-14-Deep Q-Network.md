@@ -13,7 +13,7 @@ tags: DQN
 \
 &nbsp; &nbsp; &nbsp; 1、建立一个空表用于保存 $ Q(s,a) $ 。\
 &nbsp; &nbsp; &nbsp; 2、与环境交互。获取 $ (s_t,a_t,r_t,s_{t+1}) $ 数据。在这一步，智能体需要根据状态 $ s_t $ 确定要执行的动作 $ a_t $ 。\
-&nbsp; &nbsp; &nbsp; 3、更新 $ Q $ 值。 $ Q(s,a) = r + \gamma \, max_{a^{'} \in A}Q(s^{'}, a^{'}) $。\
+&nbsp; &nbsp; &nbsp; 3、更新 $ Q $ 值。 $ Q(s,a) = r + \gamma \, max_{a^' \in A}Q(s^', a^') $。\
 &nbsp; &nbsp; &nbsp; 4、重复以上步骤，直至收敛。
 \
 上述算法中Q值的更新方式常会导致Q值过度震荡，可采用指数加权的方式更新Q值，使其平滑收敛。
