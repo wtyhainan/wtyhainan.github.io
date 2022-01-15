@@ -16,7 +16,7 @@ tags: DQN
 &nbsp; &nbsp; &nbsp; 3、更新 $ Q $ 值。 $ Q(s,a) = r + \gamma \, max_{a^' \in A}Q(s^', a^') $。\
 &nbsp; &nbsp; &nbsp; 4、重复以上步骤，直至收敛。
 \
-上述算法中Q值的更新方式常会导致Q值过度震荡，可采用指数加权的方式更新Q值，使其平滑收敛。
+上述算法中Q值的更新方式常会导致Q值过度震荡，可采用指数加权的方式更新Q值，使其平滑收敛。\
 $$
 Q(s,a) = (1-\alpha)Q(s,a) + \alpha(r + \gamma \, max_{a^{'} \in A}Q(s^{'}, a^{'}))
 $$  
