@@ -1,4 +1,10 @@
-Deep Q-Network
+---
+layout: post
+title: Deep Q-Network
+date: 2022-1-15
+categories: RL
+tags: "Deep Q-Network"
+---
 
 # Deep Q-Network（DQN）
 ## 1、什么是Deep Q-Network?
