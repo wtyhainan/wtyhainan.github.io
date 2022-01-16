@@ -46,7 +46,7 @@ $$
 ### 2.3 $\epsilon$-greedy贪婪策略
 &emsp;&emsp;DQN算法使用 $\epsilon$-greedy策略与环境交互。为了使 $Q$ 网络收敛到最优值，agent需要使用不同的动作与环境交互以此来获得更多的环境信息，这就需要agent具备很强的探索能力，随机策略是一个很好的选择。然而，为了使agent更好地利用已知样本信息，更快地收敛，agent需要根据学习到的 $Q$ 值来决定需要执行的动作，这体现了agent的exploitation能力。$\epsilon$-greedy贪婪策略常用来平衡agent的exploration和exploitation能力。在初始阶段，智能体以一个较大的概率 $\epsilon$ 采用随机动作与环境进行交互，以获得尽可能多的环境信息。随着 $Q$ 值网络收敛，$\epsilon$ 逐渐降低，agent更多时候是采用贪婪策略与环境交互。
 ## 3、算法流程
-> 1、设置 $\epsilon$-greedy的初始值及衰减步数;\
+> <font size=3> 1、设置 $\epsilon$-greedy的初始值及衰减步数; </font>\
 > 2、随机初始化Q-network参数；\
 > 3、设置Experience Replay Buffer(ERB)大小；\
 > 4、设置batch_size大小;\
