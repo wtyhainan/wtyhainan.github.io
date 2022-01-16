@@ -37,10 +37,10 @@ $$
 
 ### 2.1 最优贝尔曼方程
 &emsp;&emsp;监督学习需要采用大量标签数据来训练网络。在强化学习问题中，agent通过策略与环境交互的过程中只收到环境给与的即时奖励，如何使用深度学习技术来使得agent学习到动作与延时回报（延时回报可能发生在成百上千个动作之后）之间的关系呢？参考传统 Q-learning 算法中的第三步，DQN算法也使用最优贝尔曼方程来计算 $t$ 步的最优 $ Q^* $ 值，然后以 $ Q^* $ 最优参考调整 $ t $ 步的 $ Q(s,a \| \theta) $ 网络参数。DQN使用下面的步骤来更新 $Q$ 网络。
-> &emsp;&emsp;1、agent基于策略 $\pi(a\|s)$ 与环境交互得到样本数据 $D$；\
-> &emsp;&emsp;2、对于第 $i$ 个batch的数据 $ (s_t, a_t, r_t, s_{t+1}) $ 使用贝尔曼方程计算最优 $Q$ 值: $ Q^* = r_t + \gamma\,max_{a_{t+1}}Q(s_{t+1}, a_{t+1}\|\theta_i) $ ;\
-> &emsp;&emsp;3、计算当前网络输出的 $ Q(s_t,a_t\|\theta_{t}) $ 与 $ Q^* $ 之间的MSE误差; $ L_t(\theta_i)=E_{s,a \sim \rho( * )}[(Q^* - Q(s_t,a_t\|\theta_i))^2] $ ；\
-> &emsp;&emsp;4、使用SGD更新 $ Q(s,a\|\theta_i) $。
+> &emsp;&emsp;1、agent基于策略 $\pi(a\|s)$ 与环境交互得到样本数据 $D$ \
+> &emsp;&emsp;2、对于第 $ i $ 个batch的数据 $ \small (s_t, a_t, r_t, s_{t+1}) $ 使用贝尔曼方程计算最优 $ Q $ 值: $ \small Q^* = r_t + \gamma\,max_{a_{t+1}}Q(s_{t+1}, a_{t+1}\|\theta_i) $\
+> &emsp;&emsp;3、计算当前网络输出的 $ \small Q(s_t,a_t\|\theta_{t}) $ 与 $ Q^* $ 之间的MSE误差; $ \small L_t(\theta_i)=E_{s,a \sim \rho( * )}[(Q^* - Q(s_t,a_t\|\theta_i))^2] $\
+> &emsp;&emsp;4、使用SGD更新 $ \small Q(s,a\|\theta_i) $。
 
 ### 2.2 experience replay mechanism (经验回放技术)
 &emsp;&emsp;当我们使用深度学习来拟合Q值函数时，相当于将其转换为监督学习问题。对于监督学习问题，算法要求其样本服从IID（独立同分布）。对于强化学习问题而言，agent基于一定的策略 $\pi(a\|s)$ 与环境交互，得到episodes。对于不同的 $ \pi(a\|s) $，episode服从的概率分布均不同，因此不同的episodes之间不满足同分布要求。对于同一个episode而言，前后数据之间存在较高的相关性，故其不满足独立性要求。为此，DQN的作者使用一种称之为经验回放的技术来缓解训练数据不满足IID条件的问题。DQN开辟了一块FIFO（先进先出队列）内存空间用于存储agent每一次与环境交互得到的数据，然后使用均匀分布从FIFO队列中采样得到一个batch数据用于训练 $ Q $网络。经验回放技术极大地缓解了数据不满足IID条件问题，是DQN算法成功应用的关键性技术。
