@@ -18,7 +18,7 @@ tags: "policy-gradient"
 &emsp;&emsp;3、更新 $ Q $ 值。 $ Q(s,a) = r + \gamma \, max_{a' \in A}Q(s', a') 。$\
 &emsp;&emsp;4、重复以上步骤，直至收敛。
 \
-上述算法中Q值的更新方式常会导致Q值过度震荡，可采用指数加权的方式更新Q值，使其平滑收敛。
+上述算法中Q值的更新方式常会导致Q值过度震荡，可采用指数加权的方式更新Q值，使其平滑收敛。\
 $$
 Q(s,a) = (1-\alpha)Q(s,a) + \alpha(r + \gamma \, max_{a' \in A}Q(s', a'))
 $$  
@@ -57,11 +57,11 @@ $$
 > &emsp;&emsp;&emsp;&emsp;&emsp;agent根据 $ \epsilon $ -greedy策略与环境交互，得到交互数据 $ (s_t,a_t,r_t,s_{t+1}) $ ，并放入ERB ;\
 > &emsp;&emsp;&emsp;&emsp;&emsp;if len(ERB) < batch_size:\
 > &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;continue ;\
->&emsp;&emsp;&emsp;均匀的从ERB中抽样，得到一个batch_size大小的训练数据，记为 $ (s^{b}_t,a^{b}_t,r^{b}_t,s^{b}_{t+1}) $；\
-> &emsp;&emsp;&emsp;利用贝尔曼方程计算参考Q值， $ Q_r(s^{b}_t, a^{b}_t)=r_t+\gamma \, max_{a^b}Q(s^{b}_{t+1}, a^{b}\|\theta_t) $ ;\
->&emsp;&emsp;&emsp;利用Q-network计算 $Q$ 值，$ Q(s^b_t, a^b_t)=Q(s^b_t, a^b_t\|\theta_t) $ ;\
-> &emsp;&emsp;&emsp;计算 $ L(\theta_t)=\frac{1}{2}(Q(s^b_t,a^b_t)-Q_r(s^b_t,a^b_t))^2 $;\
-> &emsp;&emsp;&emsp;更新 $ \theta_{t+1}=\theta_t - \alpha \, \nabla_{\theta_t}L(\theta_t)=\theta_t - \alpha\, \nabla_{\theta_t}Q(s^b_t,a^b_t)(Q(s^b_t,a^b_t)-Q_r(s^b_t,a^b_t)) $。
+>&emsp;&emsp;&emsp;均匀的从ERB中抽样，得到一个batch_size大小的训练数据，记为 $ (s^{b}_{t},a^{b}_{t},r^{b}_{t},s^{b}_{t+1}) $；\
+> &emsp;&emsp;&emsp;利用贝尔曼方程计算参考Q值， $ Q_r(s^{b}_{t}, a^{b}_{t})=r_t+\gamma \, max_{a^b}Q(s^{b}_{t+1}, a^{b}\|\theta_t) $ ;\
+>&emsp;&emsp;&emsp;利用Q-network计算 $Q$ 值，$ Q(s^b_t, a^{b}_{t})=Q(s^{b}_{t}, a^{b}_{t}\|\theta_t) $ ;\
+> &emsp;&emsp;&emsp;计算 $ L(\theta_t)=\frac{1}{2}(Q(s^{b}_{t},a^{b}_{t})-Q_r(s^{b}_{t},a^{b}_{t}))^2 $;\
+> &emsp;&emsp;&emsp;更新 $ \theta_{t+1}=\theta_t - \alpha \, \nabla_{\theta_t}L(\theta_t)=\theta_t - \alpha\, \nabla_{\theta_t}Q(s^{b}_{t},a^{b}_{t})(Q(s^{b}_{t},a^{b}_{t})-Q_r(s^{b}_{t},a^{b}_{t})) $。
 
 &emsp;&emsp;在具体实现时，为了使得DQN训练时更加稳定，通常会才用双Q-network的结构。使用target Q-network来计算参考Q值，并在k次更新Q-network之后，再将target Q-network网络与Q-network网络同步。
 ## 4、DQN优缺点
