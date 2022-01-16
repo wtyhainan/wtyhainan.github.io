@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Deep Q-Network
-date: 2021-12-29
+date: 2022-1-15
 categories: RL
 tags: "policy-gradient" 
 ---
