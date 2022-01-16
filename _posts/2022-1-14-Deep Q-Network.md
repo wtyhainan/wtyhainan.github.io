@@ -1,6 +1,6 @@
 ---
 layout: post
-title: stochastic policy gradient
+title: Deep Q-Network
 date: 2021-12-29
 categories: RL
 tags: "policy-gradient" 
