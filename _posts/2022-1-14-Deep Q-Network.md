@@ -46,7 +46,7 @@ $$
 ### 2.3 $\epsilon$-greedy贪婪策略
 &emsp;&emsp;DQN算法使用 $\epsilon$-greedy策略与环境交互。为了使 $Q$ 网络收敛到最优值，agent需要使用不同的动作与环境交互以此来获得更多的环境信息，这就需要agent具备很强的探索能力，随机策略是一个很好的选择。然而，为了使agent更好地利用已知样本信息，更快地收敛，agent需要根据学习到的 $Q$ 值来决定需要执行的动作，这体现了agent的exploitation能力。$\epsilon$-greedy贪婪策略常用来平衡agent的exploration和exploitation能力。在初始阶段，智能体以一个较大的概率 $\epsilon$ 采用随机动作与环境进行交互，以获得尽可能多的环境信息。随着 $Q$ 值网络收敛，$\epsilon$ 逐渐降低，agent更多时候是采用贪婪策略与环境交互。
 ## 3、算法流程
-> <font size=3> 1、设置 $\epsilon$-greedy的初始值及衰减步数; </font>\
+> <font size=3> 1、设置 $\epsilon$-greedy的初始值及衰减步数;\ </font>
 > 2、随机初始化Q-network参数；\
 > 3、设置Experience Replay Buffer(ERB)大小；\
 > 4、设置batch_size大小;\
@@ -60,7 +60,7 @@ $$
 > &emsp;&emsp;&emsp;利用贝尔曼方程计算参考Q值， $ Q_r(s^b_ {t}, a^b_ {t})=r_t+\gamma \, max_{a^b}Q(s^{b}_ {t+1}, a^{b}\|\theta_t) $ ;\
 > &emsp;&emsp;&emsp;利用Q-network计算 $ Q $ 值，$ Q(s^b_t, a^b_ {t})=Q(s^b_ {t}, a^b_ {t}\|\theta_t) $ ;\
 > &emsp;&emsp;&emsp;计算 $ L(\theta_t)=\frac{1}{2}(Q(s^b_ {t},a^b_ {t})-Q_r(s^b_ {t},a^b_ {t}))^2 $;\
-> &emsp;&emsp;&emsp;更新 $ \theta_{t+1}=\theta_t - \alpha \, \nabla_{\theta_t}L(\theta_t)=\theta_t - \alpha\, \nabla_{\theta_t}Q(s^b_ {t},a^b_ {t})(Q(s^b_ {t},a^b_ {t})-Q_r(s^b_ {t},a^b_ {t})) $。
+> <font size=3> &emsp;&emsp;&emsp;更新 $ \theta_{t+1}=\theta_t - \alpha \, \nabla_{\theta_t}L(\theta_t)=\theta_t - \alpha\, \nabla_{\theta_t}Q(s^b_ {t},a^b_ {t})(Q(s^b_ {t},a^b_ {t})-Q_r(s^b_ {t},a^b_ {t})) $ <font size=3>。
 
 &emsp;&emsp;在具体实现时，为了使得DQN训练时更加稳定，通常会才用双Q-network的结构。使用target Q-network来计算参考Q值，并在k次更新Q-network之后，再将target Q-network网络与Q-network网络同步。
 ## 4、DQN优缺点
