@@ -7,6 +7,7 @@ tags: DQN
 ---
 
 # Deep Q-Network（DQN）
+
 ## 1、什么是Deep Q-Network?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DQN是DeepMind于2013年发表在NIPS上的一种强化学习方法，该方法首次将深度学习与强化学习结合用于解决大规模（或连续状态）强化学习问题。\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值迭代算法利用贝尔曼方程来建立动作值函数或状态值函数。值迭代算法从任意初始化值函数开始，采用最优贝尔曼方程迭代求解值函数，经过多次迭代收敛到最优值函数。Q-leanring算法:
