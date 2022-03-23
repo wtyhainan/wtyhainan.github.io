@@ -147,8 +147,8 @@ input A transition $ (x_t, a_t, r_t, x_{t+1}), \gamma_t \in [0, 1] $ \
 &emsp; &emsp; &emsp; $ \hat \Gamma z_j \leftarrow [r_t + \gamma_t z_j]^{V_{max}} _ {V_{min}} $ &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; ***当前bar刻度在收到回报 $r_t$ 之后的变化*** \
 &emsp; &emsp; &emsp; $ b_j \leftarrow \frac{(\hat \Gamma z_j - V_{min})}{\Delta z} $  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &ensp;&emsp; ***bar刻度对应的索引***\
 &emsp; &emsp; &emsp; $ l \leftarrow \lfloor {b_j} \rfloor, u \leftarrow \lceil {b_j} \rceil $ &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; ***离散化bar索引。概率分布是一个直方图，而这里的 $ b_j $不一定是整数*** \
-&emsp; &emsp; &emsp; $ m_l \leftarrow m_l + p_j(x_{t+1}, a*)(u-b_j) $ &emsp; ***计算目标概率分布***\
-&emsp; &emsp; &emsp; $ m_u \leftarrow m_u + p_j(x_{t+1}, a*)(b_j-l) $ \
+&emsp; &emsp; &emsp; $ m_l = m_l + p_j(x_{t+1}, a*)(u-b_j) $ &emsp; ***计算目标概率分布***\
+&emsp; &emsp; &emsp; $ m_u = m_u + p_j(x_{t+1}, a*)(b_j-l) $ \
 &emsp; 5、 $ loss=- \sum_i m_i log(p_i(x_t, a_t)) $ &emsp; &emsp; ***计算损失***
 
 
