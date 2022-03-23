@@ -10,13 +10,13 @@ tags: "DQN"
 ### **DQN算法**
 &emsp; &ensp; [DQN]算法属于Q-learning中的一种。为了解决Tabular Q-learning类型算法难扩展到大规模环境状态的问题，DQN使用神经网络来拟合Q值函数。与一般的监督学习一样，利用神经网络拟合Q值函数需要有一个针对特征输入的期望输出信号。DQN通过下式构造期望输出：
 
-$$\hat Q(s_t, a_t \| \theta_t) = r_t + \gamma \, max_{a}Q(s_{t+1}, a\| \theta_t)  \quad \quad (1) $$
+$$\hat Q(s_t, a_t \mid \theta_t) = r_t + \gamma \, max_{a}Q(s_{t+1}, a \mid \theta_t)  \quad \quad (1) $$
 
 其中r为单步回报， $\gamma$ 为折扣率。
 
 &emsp; &ensp; 为了使得DQN算法在训练时更加稳定， 通常会采用双Q网络的结构。target-Q网络用于计算 $(s, a)$ 下的期望Q值，Q网络用于预测 $(s, a)$ 的Q值。
 
-$$\hat Q(s_t, a_t \| \theta_t) = r_t + \gamma \, max_a Q(s_{t+1}, a \| \theta_t^-) \quad (2) $$
+$$\hat Q(s_t, a_t \mid \theta_t) = r_t + \gamma \, max_a Q(s_{t+1}, a \mid \theta_t^-) \quad (2) $$
 
 &emsp; &ensp; target-Q可每步根据Q网络参数，采用动量的方式更新。也可以在Q网络更新m步之后，再将Q网络的参数赋予target-Q网络。算法流程如下：
 
@@ -32,7 +32,8 @@ $$\hat Q(s_t, a_t \| \theta_t) = r_t + \gamma \, max_a Q(s_{t+1}, a \| \theta_t^
 &emsp;&ensp; [DDQN] 的作者认为DQN会产生overestimation现象。原因是动作的选择及期望Q值得计算均使用了相同的网络（均来自Target-Q网络）。通常而言，如果对所有的(s, a)的值函数都产生过高的估计，这不会对算法产生任何不良的影响。但如果算法不是对所有(s, a)的值都产生过高估计，而是集中在我们不关心的(s, a)上，那么算法便会找到一个次优的策略。
 
 &emsp; &ensp; DDQN建议动作选择和Q值计算应分别使用不同的网络计算：
-$$ \hat Q(s_t, a_t) = r_t + \gamma \, Q(s_{t+1}, argmax_a Q'(s_{t+1}, a \| \theta ^-_t) \| \theta _t) \quad \quad (3)$$
+
+$$ \hat Q(s_t, a_t) = r_t + \gamma \, Q(s_{t+1}, argmax_a Q'(s_{t+1}, a \mid \theta ^-_t) \mid \theta _t) \quad \quad (3)$$
 
 &emsp; &ensp; 除了期望Q值使用式（3）代替式（2）之外，Double DQN的训练过程与DQN算法一致。
 
