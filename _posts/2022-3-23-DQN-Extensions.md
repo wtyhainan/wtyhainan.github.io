@@ -144,7 +144,7 @@ input A transition $ (x_t, a_t, r_t, x_{t+1}), \gamma_t \in [0, 1] $ \
 &emsp; 2、$ a* \leftarrow argmax_a Q(x_{t+1}, a) $ &emsp; &emsp; &emsp; &emsp; &emsp; ***找到最优动作***\
 &emsp; 3、$ m_i=0, i \in 0, ... , N-1 $  &emsp; &emsp; &emsp; &emsp; &emsp; &ensp; &ensp; ***初始化一个全为零的直方图***\
 &emsp; 4、for ***j*** in range(N-1): &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; ***对应于上图中的 (a)~(c) 步骤*** \
-&emsp; &emsp; &emsp; $ \hat \Gamma z_j \leftarrow [r_t + \gamma_t z_j]^{V_{max}}_{V_{min}} $ &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; ***当前bar刻度在收到回报 $r_t$ 之后的变化*** \
+&emsp; &emsp; &emsp; $ \hat \Gamma z_j \leftarrow [r_t + \gamma_t z_j]^{V_{max}} _ {V_{min}} $ &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; ***当前bar刻度在收到回报 $r_t$ 之后的变化*** \
 &emsp; &emsp; &emsp; $ b_j \leftarrow \frac{(\hat \Gamma z_j - V_{min})}{\Delta z} $  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &ensp;&emsp; ***bar刻度对应的索引***\
 &emsp; &emsp; &emsp; $ l \leftarrow \lfloor {b_j} \rfloor, u \leftarrow \lceil {b_j} \rceil $ &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; ***离散化bar索引。概率分布是一个直方图，而这里的 $ b_j $不一定是整数*** \
 &emsp; &emsp; &emsp; $ m_l \leftarrow m_l + p_j(x_{t+1}, a*)(u-b_j) $ &emsp; ***计算目标概率分布***\
