@@ -122,7 +122,7 @@ $$ Z(s, a) = R(s, a) + \gamma Z(s', a') \quad \quad (12) $$
 &emsp; &emsp; &emsp; 3) A richer set of perdictions; 通过将值函数表示成概率分布的形式，agent可以从更加丰富合理的回报中学习。***（总是感觉怪怪的，怎么说才合适呢？）*** \
 &emsp; &emsp; &emsp; 4) Framework for inductive bias; 通过使用概率分布式的贝尔曼方程，它允许我们使用更一般的解决问题的框架，在这样的框架中，我们可以对问题加入一些先验知识。\
 &emsp; &emsp; &emsp; 5) Well-behaved optimization; \
-&emsp; &ensp; 当我们将贝尔曼方程表示成概率分布形式，首先要考虑的问题是：1）如何确定目标状态概率分布；2）如何根据目标状态概率分布更新当前状态概率分布。\
+&emsp; &ensp; 当我们将贝尔曼方程表示成概率分布形式，首先要考虑的问题是：1）如何确定目标状态概率分布；2）如何根据目标状态概率分布更新当前状态概率分布。
 
 &emsp; &ensp;  Categorical DQN利用最优概率贝尔曼方程计算目标函数：
 
