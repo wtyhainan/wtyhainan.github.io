@@ -69,7 +69,7 @@ $$ y=(\mu^{w} + \sigma^{w} \odot \epsilon^{w})x + \mu^{b} + \sigma^{b} \odot \ep
 
 $$P(i) = \frac{P_i^{\alpha}}{\sum_{i}P_i^{\alpha}} \quad \quad \qquad (6)$$
 
-有两种方式计算 $P_i^{\alpha}$ 。一种是： $P_i^{\alpha}=|\delta_i| + \epsilon$ ，$\delta_i$ 为TD-error， $\epsilon$是一个很小的正数，用于保证每一个样本即使没有TD-error也有一定的概率被抽样到; 另一种是： $P_i = \frac{1}{rank(i)}$， $rank(i)$ 为第i个样本根据 $\delta_i$ 的排序（从大到小）。
+有两种方式计算 $P_i^{\alpha}$ 。一种是： $ P_i^{\alpha}= \mid \delta_i \mid + \epsilon $ ，$\delta_i$ 为TD-error， $\epsilon$是一个很小的正数，用于保证每一个样本即使没有TD-error也有一定的概率被抽样到; 另一种是： $P_i = \frac{1}{rank(i)}$， $rank(i)$ 为第i个样本根据 $\delta_i$ 的排序（从大到小）。
 
 > **Stochastic sampleing method** 
 ![Prioritized Replay Buffer](https://cdn.jsdelivr.net/gh/wtyhainan/blog-img@main/DQN-Extensions/Prioritized-Replay-Buffer.jpg)
