@@ -97,7 +97,7 @@ $$ Q(s, a;\theta, \alpha, \beta) = \hat V(s;\theta,\beta) + [\hat A(s,a; \theta,
 
 &emsp; &ensp; Dueling DQN在输出的时候，将优势函数 $\hat A(s, a; \theta,\alpha)$ 减去了其平均值 $\frac{1}{\mid A \mid} \sum_{a'} \hat A(s, a'; \theta, \alpha)$ 。这么做的原因是使 $ \hat A(s, a;\theta, \alpha)$ 合法化。设想，状态 $s$ 的值函数为 $V(s)$, 且 $V(s) > 0$，它是 $Q(s, a)$ 的加权和：
 
-$$ V(s) = \sum_{a} \pi(a\|s)Q(s,a) \quad \quad \quad (9)$$ 
+$$ V(s) = \sum_{a} \pi(a \mid s)Q(s,a) \quad \quad \quad (9)$$ 
 
 优势函数定义为：
 
