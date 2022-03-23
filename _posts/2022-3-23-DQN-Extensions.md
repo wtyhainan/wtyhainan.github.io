@@ -153,12 +153,12 @@ input A transition $ (x_t, a_t, r_t, x_{t+1}), \gamma_t \in [0, 1] $ \
 
 
 #### **参考文献**
-[1]:[Noise Networks For Exploration](https://arxiv.org/pdf/1706.10295.pdf) \
-[2]:[Prioritized experience replay](https://arxiv.org/pdf/1511.05952.pdf) \
-[3]:[Dueling network architectures for deep reinforcement learning](https://arxiv.org/pdf/1511.06581.pdf) \
-[4]:[A Distributional Perspective on Reinforcement Learning]() \
-[5]:[Playing Atari with Deep Reinforcement Learning](https://arxiv.org/pdf/1312.5602.pdf) \
-[6]:[Stable function approximation in dynamic programming](https://www.ri.cmu.edu/pub_files/pub1/gordon_geoffrey_1995_2/gordon_geoffrey_1995_2.pdf)
+1、 [Noise Networks For Exploration](https://arxiv.org/pdf/1706.10295.pdf) \
+2、 [Prioritized experience replay](https://arxiv.org/pdf/1511.05952.pdf) \
+3、 [Dueling network architectures for deep reinforcement learning](https://arxiv.org/pdf/1511.06581.pdf) \
+4、 [A Distributional Perspective on Reinforcement Learning](https://arxiv.org/pdf/1707.06887.pdf) \
+5、 [Playing Atari with Deep Reinforcement Learning](https://arxiv.org/pdf/1312.5602.pdf) \
+6、 [Stable function approximation in dynamic programming](https://www.ri.cmu.edu/pub_files/pub1/gordon_geoffrey_1995_2/gordon_geoffrey_1995_2.pdf)
 
 
 
