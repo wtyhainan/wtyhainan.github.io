@@ -146,7 +146,7 @@ $$\mathop{max}\limits_v \hat {CE}(v) = \mathop{max}\limits_v \frac{1}{N} \sum_{i
 
 ## 总结
 
-&emsp; &ensp; 当我们使用Importance Sampling策略来解决Monte Calor近似时，会遇到如何选择抽样函数 $g(x)$ 地问题。在最小方差准则下，我们可以通过最小化方差的办法来得到最优 $g^*(x)$ ，也可以通过Cross-Entropy的方法求解最优 $g^*(x)$。直接最小化方差法要求我们求解式（11）这个非线性方程来得到最优 $g^*(x)$。Cross-Entropy通过引入另一概率分布 $f(\bold x; w)$，不断地从 $f(\bold x; w)$ 抽取样本，迭代优化式（21）来得到最优 $g^*(x)$。  
+&emsp; &ensp; 当我们使用Importance Sampling策略来解决Monte Calor近似时，会遇到如何选择抽样函数 $g(x)$ 地问题。在最小方差准则下，我们可以通过最小化方差的办法来得到最优 $g^{ * }(x)$ ，也可以通过Cross-Entropy的方法求解最优 $g^ { * } (x)$。直接最小化方差法要求我们求解式（11）这个非线性方程来得到最优 $g^{ * }(x)$。Cross-Entropy通过引入另一概率分布 $f(\bold x; w)$，不断地从 $f(\bold x; w)$ 抽取样本，迭代优化式（21）来得到最优 $g^ { * } (x)$。  
 
 
 ### 参考文献
