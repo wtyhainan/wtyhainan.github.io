@@ -3,7 +3,7 @@ layout: "post"
 title: "Importance Sampling"
 date: 2022-4-2
 categories: "Importance Sampling"
-tags: "importance sampling"
+tags: "importance-sampling"
 ---
 
 # Importance Sampling
