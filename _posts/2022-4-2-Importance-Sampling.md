@@ -9,7 +9,7 @@ tags: "importance sampling"
 # Importance Sampling
 &emsp; &ensp; 当我们在使用Monte Carlo方法来估算某一变量的具体取值时，Importance Sampling是一种常用来降低估计方差的方法。考虑如下问题：
 
-$$\mathcal L = E_f \Big[H(\bold x) \Big ] = \int H(\bold x) \, f(\bold x) \,d \bold x \quad \quad (1)$$
+$$\mathcal L = E_f \Big[H(\mathbf x) \Big ] = \int H(\mathbf x) \, f(\bold x) \,d \mathbf x \quad \quad (1)$$
 
 这里 $H(\bold x)$ 为样本评价函数。一般情况下，可以使用Monte Carlo方法来估算 $\mathcal L$:
 
